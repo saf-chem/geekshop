@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Главная</title>
+{% extends 'mainapp/base.html' %}
 
-    <link rel="stylesheet" href="/static/mainapp/css/styles.css/">
-</head>
-<body>
-<div>
-    <a href="/">Главная</a>
-    <a href="/products">Продукты</a>
-    <a href="/contacts">Контакты</a>
-</div>
+
+{% block content %}
 <h1 class="test">Главная</h1>
-
-</body>
-</html>
+{% endblock %}
