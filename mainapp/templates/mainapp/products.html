@@ -1,10 +1,15 @@
 {% extends 'mainapp/base.html' %}
 
 {% block content %}
-    <h1 class="test">Продукты</h1>
+    <h1>Продукты</h1>
     <ul>
         {% for product in products %}
-            <li>{{ product.name }}</li>
+            <li>
+                <div>{{ product.name }}</div>
+                {% if product.image %}
+                <img src={{ product.image.url }}>
+                {% endif %}
+            </li>
         {% endfor %}
     </ul>
 

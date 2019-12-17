@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainapp.apps.MainappConfig',
+    'authapp.apps.AuthappConfig',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +82,8 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
+
+AUTH_USER_MODEL = 'authapp.ShopUser'
 
 AUTH_PASSWORD_VALIDATORS = [
     {

@@ -1,6 +1,20 @@
 {% extends 'mainapp/base.html' %}
 
+{% block title %}
+<title>Главная</title>
+{% endblock %}
 
 {% block content %}
-<h1 class="test">Главная</h1>
+    <h1 class="test">Главная</h1>
+    {% if request.user.is_authenticated  %}
+        <h2>Привет, {{ request.user.username|title }}!</h2>
+        <a href="{% url 'auth:logout' %}">Выйти</a>
+        <br>
+        <a href="{% url 'auth:edit' request.user.pk %}">Редактировать профиль</a>
+    {% else %}
+        <h2>Привет!</h2>
+        <a href="{% url 'auth:login' %}">Войти</a>
+        <br>
+        <a href="{% url 'auth:register' %}">Зарегистрироваться</a>
+    {% endif %}
 {% endblock %}
