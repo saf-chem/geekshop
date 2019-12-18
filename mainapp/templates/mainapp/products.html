@@ -1,22 +1,29 @@
 {% extends 'mainapp/base.html' %}
 
-{% block content %}
-    <h1>Продукты</h1>
-    <ul>
-        {% for product in products %}
-            <li>
-                <div>{{ product.name }}</div>
-                {% if product.image %}
-                <img src={{ product.image.url }}>
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
 
-<h1 class="test">Категории продуктов</h1>
-    <ul>
-        {% for category in categories %}
-            <li>{{ category.name }}</li>
+{% block title %}
+    <title>Продукты</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Продукты</h1><br>
+
+   {% include 'mainapp/includes/inc_category_menu.html' %}
+    <br><br>
+    <div style="display: flex; flex-wrap: wrap;" class="category-products clearfix">
+        {% for product in products %}
+            <div style="margin: 20px" class="block">
+                  <div class="card" style="width: 18rem;">
+                      <img src="/media/{{ product.image }}" class="card-img-top" alt="product">
+                      <div class="card-body">
+                          <h5 class="card-title">{{ product.name }}</h5>
+                          <p class="card-text">{{ product.short_desc }}</p>
+                          <a href="{% url 'basket:add' product.pk %}">Добавить в корзину</a>
+                          <br>
+                          <a href="{% url 'basket:remove' product.pk %}">Удалить из корзины</a>
+                      </div>
+                  </div>
+              </div>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}
