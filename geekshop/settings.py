@@ -86,6 +86,8 @@ DATABASES = {
 
 AUTH_USER_MODEL = 'authapp.ShopUser'
 
+LOGIN_URL = '/auth/login/'
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
